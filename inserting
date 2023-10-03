@@ -1,0 +1,41 @@
+#include <stdio.h>
+void accept(int a[], int size);
+void display(int a[], int size);
+void insert(int la[], int n, int k, int item);
+int main()
+{
+    int la[10];
+    int n = 7;//Number of elements;
+    int p = 5;//The position of the element;
+    int e = 55;//The new element 'value'
+    
+    accept(la, n);
+    display(la, n);
+    insert(la, n, p, e);
+    n = n + 1;//IMPORTANT STEP 6;
+    printf("After insertion, the elements in the array is:");
+    display(la, n);
+    return 0;
+}
+void accept(int a[], int size) {
+    int index;
+    for(index = 0; index<size; index++) {
+        printf("Enter data: ");
+        scanf("%d", &a[index]);
+    }
+    return;
+}
+void insert(int la[], int n, int k, int item) {
+    int index;
+    for(index = n-1; index>=k; index--) {
+        la[index + 1] = la[index];
+    }
+    la[k] = item;
+}
+void display(int a[], int size) {
+    int index;
+    for(index = 0; index<size; index++) {
+        printf("%d", a[index]);
+    }
+    return;
+}
